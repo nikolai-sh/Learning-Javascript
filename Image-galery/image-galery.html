@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Image gallery example</h1>
+
+<div class="full-img">
+  <img class="displayed-img" src="images/banner-item-01.jpg">
+  <div class="overlay"></div>
+  <button class="dark">Darken</button>
+</div>
+
+<div class="thumb-bar">
+    
+  
+</div>
+
+    <script>
+        const btn = document.querySelector('button');
+        const thumbBar = document.getElementsByClassName('thumb-bar')[0];//return a list
+        const image = document.querySelector('img');
+
+        function changeOpacity(){
+            const overlay = document.getElementsByClassName('overlay')[0];
+            
+            if (btn.textContent === 'Darken') {
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+                btn.innerHTML = 'Lighten';
+            } else {
+                overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                btn.innerHTML = 'Darken';
+            }
+        }
+        btn.onclick = changeOpacity;
+
+        for(let i = 1; i < 6; i++) {
+            let img = document.createElement('img');
+            let currentImg = 'images/banner-item-0' + i + '.jpg';
+            img.src = currentImg;
+            img.onclick = () => image.src = currentImg;
+            
+            thumbBar.appendChild(img);
+        }
+
+        
+    </script>
+</body>
+</html>

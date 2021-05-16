@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    class Shape {
+        constructor(name, sides, sideLenght) {
+        this.name = name;
+        this.sides = sides;
+        this.sideLenght = sideLenght;
+        };
+        calcPerimeter() {
+        console.log(`Perimeter of ${this.name}: ${this.sides * this.sideLenght}`);
+        };
+    }
+    class Square extends Shape {
+        constructor(sideLenght){
+        super();
+        this.name = 'square';
+        this.sides = 4;
+        this.sideLenght = sideLenght;
+        };
+        
+        calcArea() {
+        console.log(`Area of ${this.name}: ${this.sides * this.sideLenght}`);
+        };
+    }
+    let square = new Square(3);
+    let cube = new Square(9);
+    square.calcPerimeter();
+    square.calcArea();
+    cube.calcPerimeter();
+    cube.calcArea();
+
+    //console.log(square.name);
+    //console.log(square.sides);
+
+   /*
+    class Square extends Shape {
+        constructor(sideLenght){
+        super(sideLenght); super()- also works
+        this.name = 'square';
+        this.sides = 4;
+        this.sideLenght = sideLenght;
+        };
+    let square = new Square(5); works
+   */
+    </script>
+</body>
+</html>

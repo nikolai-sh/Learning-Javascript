@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="output">
+
+    </div>
+
+
+    <script>
+        const output = document.querySelector('.output');
+        output.innerHTML = '';
+
+        let i = 10;
+        while (i >= 0) {
+            const para = document.createElement('p');
+
+            if (i === 10){
+                para.textContent = 'Обратный отсчет 10';
+            } else if (i === 0) {
+                para.textContent = 'Пуск!';
+            } else {
+                para.textContent = i;
+            }
+
+            output.appendChild(para);
+
+            i--;
+        }
+    </script>
+</body>
+</html>

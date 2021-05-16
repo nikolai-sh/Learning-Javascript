@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+
+    <script>
+        /* function createNewPerson(name){
+            const obj = {};
+            obj.name = name;
+            obj.greering = function(){
+                alert('Hi! I\'m ' + obj.name + '.' );
+            };
+            return obj;
+        }
+
+        function Person(name) {
+            this.name = name;
+            this.greeting = function() {
+                alert('Hi! I\'m ' + this.name + '.' );
+            };
+        }
+        let person1 = new Person('Bob');
+        let person2 = new Person('Sarah');*/
+
+        function Person(first, last, age, gender, interests) {
+            this.name = {
+                first: first,
+                last: last
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+            this.bio = function() {
+                if (this.gender === 'male') {
+                    alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.myInterest() + '.');
+                } else {
+                    alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. She likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+
+                }
+            };
+            this.greeting  = function() {
+                alert('Hi! I\'m ' + this.name.first + '.');
+            };
+
+             this.myInterest = function(){
+                let interest = '';
+                for(let i = 0; i < this.interests.length; i++) {
+                    if (i === this.interests.length - 1){
+                        interest += this.interests[i];
+                    }else {
+                        interest += this.interests[i] +', ' ;
+                    }
+                }
+                return interest;
+            }
+        }
+
+        let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing', 'futboll', 'basketboll']);
+        let person2 = new Person('Sarah', 'James', 32, 'female', ['music', 'skiing']);
+
+        read 
+        https://dzone.com/articles/how-to-create-basic-inheritance-in-javascript-cons
+    </script>
+  </body>
+</html>

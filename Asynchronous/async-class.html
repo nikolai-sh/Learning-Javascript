@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demonstration of slow async/await</title>
+  </head>
+  <body>
+    <script>
+        class Person {
+            constructor(first, last, age, gender, interests) {
+              this.name = {
+                first,
+                last
+              };
+              this.age = age;
+              this.gender = gender;
+              this.interests = interests;
+            }
+          
+            async greeting() {
+              return await Promise.resolve(`Hi! I'm ${this.name.first}`);
+            };
+          
+            farewell() {
+              console.log(`${this.name.first} has left the building. Bye for now!`);
+            };
+          }
+          
+          let han = new Person('Han', 'Solo', 25, 'male', ['Smuggling']);
+          han.greeting().then(console.log);
+          
+    </script>
+  </body>
+</html>

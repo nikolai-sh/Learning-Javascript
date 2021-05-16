@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <em></em>
+    <br>
+
+    <label for="search">Поиск по имени: </label>
+    <input id="search" type="text">
+    <button>Поиск</button>
+    
+    <p></p>
+ 
+    <script>
+        const cats = ['Bill', 'Jeff', 'Pete', 'Biggles', 'Jasmin'];
+        let info = 'My cats are called ';
+        const para = document.querySelector('em');
+
+        for(let i = 0; i < cats.length; i++) {
+            if (i === cats.length - 1){
+                info += 'and ' + cats[i] + '.';
+            } else {
+                info += cats[i] + ', ';
+            }
+        }
+        para.textContent = info;
+
+        //break in loop
+
+        const contacts = ['Григорий:2232322', 'Марина:3453456', 'Василий:7654322', 'Наталья:9998769', 'Диана:9384975'];
+        const para_1 = document.querySelector('p');
+        const input = document.querySelector('input');
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', function(){
+            const searchName = input.value;
+            input.value = '';
+            input.focus();
+            for (let i = 0; i < contacts.length; i++) {
+                let splitContact = contacts[i].split(':');
+                if (splitContact[0] === searchName) {
+                  para_1.textContent = splitContact[0] + ', тел.: ' + splitContact[1] + '.';
+                  break;
+                } else {
+                  para_1.textContent = 'Контакт не найден.';
+                }
+              }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clock"></p>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reset">Reset</button>
+    <script>
+
+      // Define a counter variable for the number of seconds and set it to zero.
+      let secondCount = 0;
+      // Define a global to store the interval when it is active.
+      let stopWatch;
+      // Store a reference to the display paragraph in a variable
+      const displayPara = document.querySelector('.clock');
+     
+      // Function to calculate the current hours, minutes, and seconds, and display the count
+      function displayCount() {
+        // Calculate current hours, minutes, and seconds
+        let hours = Math.floor(secondCount/3600);
+        let minutes = Math.floor((secondCount % 3600)/60);
+        let seconds = Math.floor(secondCount % 60)
+
+        // Display a leading zero if the values are less than ten
+        let displayHours = (hours < 10) ? '0' + hours : hours;
+        let displayMinutes = (minutes < 10) ? '0' + minutes : minutes;
+        let displaySeconds = (seconds < 10) ? '0' + seconds : seconds;
+
+        // Write the current stopwatch display time into the display paragraph
+        displayPara.textContent = displayHours + ':' + displayMinutes + ':' + displaySeconds;
+
+        // Increment the second counter by one
+        secondCount++;
+      }
+
+      // Store references to the buttons in constants
+      const startBtn = document.querySelector('.start');
+      const stopBtn = document.querySelector('.stop');
+      const resetBtn = document.querySelector('.reset');
+      
+      // When the start button is pressed, start running displayCount() once per second using setInterval()
+      startBtn.addEventListener('click', () => {
+        stopWatch = setInterval(displayCount, 1000);
+        startBtn.disabled = true;
+      });  
+
+      stopBtn.addEventListener('click', () => {
+        clearInterval(stopWatch);
+        startBtn.disabled = false;
+      });
+       // When the reset button is pressed, set the counter back to zero, then immediately update the display
+      resetBtn.addEventListener('click', () => {
+        secondCount = 0;
+        clearInterval(stopWatch);
+        startBtn.disabled = false;
+        displayCount();
+      });
+
+       // Run displayCount() once as soon as the page loads so the clock is displayed
+       displayCount();
+      
+      
+      
+      /**
+      
+      let startBtn = document.querySelector('.start');
+      let stopBtn = document.querySelector('.stop');
+      let resetBtn = document.querySelector('.reset');
+      let clock = document.querySelector('.clock');
+      
+      let startTime = Date.now();
+      
+      function displayTimer() {
+        let currentTime = Math.floor((Date.now() - startTime)/1000);
+        
+        let hours = Math.floor(currentTime/3600);
+        let minutes = Math.floor(currentTime/60);
+        let seconds = currentTime % 60;
+        
+        let strHours = hours < 10 ? '0'+ hours : hours;
+        let strMinutes = minutes < 10 ? '0'+ minutes : minutes;
+        let strSeconds = seconds < 10 ? '0'+ seconds : seconds;
+        
+        clock.textContent = strHours + ':' + strMinutes +':' +strSeconds ;
+      }
+      
+      let showClock = function() { 
+        setInterval(displayTimer, 1000);
+        startBtn.disabled = true; 
+      };
+      startBtn.addEventListener('click', displayTimer);
+      
+      stopBtn.addEventListener('click', function(){
+        clearInterval(showClock);
+        startBtn.disabled = false;
+      })
+      
+      */
+    </script>
+  </body>
+</html>

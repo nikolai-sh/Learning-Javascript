@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*let myGreeting = setTimeout(function() {
+            alert('Hello, Mr. Universe!');
+        }, 2000);
+        
+        // With a named function
+        let myGreeting = setTimeout(function sayHi() {
+        alert('Hello, Mr. Universe!');
+        }, 2000)
+
+        // With a function defined separately
+        function sayHi() {
+        alert('Hello Mr. Universe!');
+        }
+
+        let myGreeting = setTimeout(sayHi, 2000);
+        */
+
+        //Passing parameters to a setTimeout() function
+        function sayHi(who) {
+            alert(`Hello ${who}!`);
+            }
+        let myGreeting = setTimeout(sayHi('Universe'), 2000); // or
+        //let myGreeting = setTimeout(sayHi, 2000, 'Mr.Universe'); 
+    
+        //Clearing timeouts
+        clearTimeout(myGreeting);
+
+
+        //Recursive timeouts
+
+        let i = 0;
+
+        setTimeout(function run() {
+            console.log(i);
+            i++;
+            setTimeout(run, 100);
+        }, 100);
+        
+        //the same effect:
+        setInterval(function run() {
+            console.log(i);
+            i++;
+        }, 100);
+        
+        //Immediate timeouts
+        /*
+        *For instance, the code below (see it live) outputs an alert containing "Hello", then an alert containing "World" as soon as you click OK on the first alert.
+        */
+        setTimeout(function() {
+            alert('World');
+          }, 0);
+          
+          alert('Hello');
+
+          
+    </script>
+</body>
+</html>

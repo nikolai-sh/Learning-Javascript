@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random color example — event handler property</title>
+    <style>
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>Change color</button>
+    <script>
+      const btn = document.querySelector('button');
+
+      function random(number) {
+        return Math.floor(Math.random()*number);
+      }
+
+      function bgChange() {
+        const rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+        document.body.style.backgroundColor = rndCol;
+      }
+
+      //btn.onclick = bgChange;
+      //btn.onfocus = bgChange; //work once then need click not a button to work again
+      //btn.onblur = bgChange; // against onfocus
+      btn.ondblclick = bgChange;
+
+      /*
+      window.onkeypress, window.onkeydown, window.onkeyup — The color changes when a key is pressed on the keyboard.
+       The keypress event refers to a general press (button down and then up), while keydown and keyup refer to just
+        the key down and key up parts of the keystroke, respectively. Note: It doesn't work if you try to register 
+        this event handler on the button itself — we've had to register it on the window object, which represents 
+        the entire browser window.
+       btn.onmouseover and btn.onmouseout — The color changes when the mouse pointer hovers over the button,
+        or when the pointer moves off the button, respectively.
+*/
+    </script>
+  </body>
+</html>

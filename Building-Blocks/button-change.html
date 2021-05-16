@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>Some text</button>
+
+    <script>
+       const btn = document.querySelector('button');
+
+      /* btn.onclick = function () {
+           btn.innerHTML = 'red';
+       }*/
+
+       function changeBtn() {
+        //const btn = document.querySelector('button');
+        if (btn.textContent === "Some text")
+            btn.innerHTML = 'reeed';
+        else
+            btn.innerHTML = "Some text"
+       }
+       btn.addEventListener('click', changeBtn);
+       
+
+    </script>
+</body>
+</html>
